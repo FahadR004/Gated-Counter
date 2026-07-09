@@ -1,10 +1,14 @@
-# Slow Counter
+# Gated Counter
 
 As part of the IC Design Training Program, I implemented a Gated Counter (Clock Counter with Enable). In this circuit, there are two counters. The first counter is an 8-bit free running counter which continuously increments from 0 to 255 and wraps around to 0 without any external input. When this counter reaches it's maximum value, it generates a clock tick. This clock tick will act as the clock or rather an enable for the second counter, which will only increment on this tick.
 
 <div align="center">
   <img src="gated_counter.png" alt="Gated Clock Counter" width="500">
 </div>
+
+I originally implemented the circuit in Verilog but I have added the SystemVerilog implementation as well. Both implementations differ only slightly in syntax but will give the same output and waveform.
+
+## Frequency and Time Period
 
 To count the frequency and time period of both counters, see that in our testbench, we defined our clock oscillations every 5ns.
 Then, 5ns (High) + 5ns (Low) = 10ns (Time Period)      
@@ -50,7 +54,6 @@ For bit 7 i.e. state[7],
 Time Period = 2 × 327.68μs = 655.36μs   
 Frequency = 1/655.36μs = 1.52587890625 kHz   
        
-I originally implemented the circuit in Verilog but I have added the SystemVerilog implementation as well. Both implementations differ only slightly in syntax but will give the same output and waveform.
   
 ## Waveform
 Following is the waveform of the implemented gated counter:
